@@ -1,0 +1,1 @@
+Hey I'm Tom from London. I'm interested in learning all things node for both profit and pleasure.
