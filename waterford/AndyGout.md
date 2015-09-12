@@ -1,0 +1,1 @@
+Recent Makers Academy graduate looking to build on knowledge of Node.
