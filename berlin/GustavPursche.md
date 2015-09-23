@@ -1,0 +1,1 @@
+Hi I'm Gustav, frontend developer from Berlin. I'm here to look for ways to contribute to your frontend/ evangelism Team.
