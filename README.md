@@ -10,7 +10,7 @@ Concerns have also been raising about efforts that might increase the number of 
 
 ## Implementation
 
-*[This is still actively under discussion.](#1)*
+*[This is still actively under discussion.](https://github.com/nodejs/code-and-learn/issues/1)*
 
 ## Prior Art and Integration
 
