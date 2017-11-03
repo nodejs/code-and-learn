@@ -21,7 +21,7 @@ code.
 - On the command line, in your home directory or a directory you have for projects, run:
 
 ```console
-git clone &lt;paste that URL here!&gt;
+git clone <paste that URL here>;
 ```
 
 - When that is done:
