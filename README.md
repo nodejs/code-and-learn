@@ -44,5 +44,5 @@ git config --global user.name "J. Q. User"
 git config --global user.email "j.q.user@example.com"
 ```
 
-- Look at issues in the Core repository labeled ['good first contribution'](https://github.com/nodejs/node/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+contribution%22) to choose what'd you liked to jump into or visit [#Node.js in IRC](http://webchat.freenode.net/?channels=node.js) to get help with any of the above steps.
+- Look at issues in the Core repository labeled ['good first issue'](https://github.com/nodejs/node/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) to choose what'd you liked to jump into or visit [#Node.js in IRC](http://webchat.freenode.net/?channels=node.js) to get help with any of the above steps.
 - After you have your first pull request open, you can look at the [Next Steps](http://nodetodo.org/next-steps/) page for suggestions on ways to find additional issues to work on.
