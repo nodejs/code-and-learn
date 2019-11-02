@@ -21,8 +21,8 @@ WORKDIR /home/node-dev
 ENV HOME /home/node-dev
 
 # Clone the code and build
-git clone --depth=1 https://github.com/nodejs/node.git
+RUN git clone --depth=1 https://github.com/nodejs/node.git
 WORKDIR /home/node-dev/node
 RUN python2 ./configure --ninja
 ENV BUILD_WITH ninja
-make -j2 test
+RUN make -j2 test
