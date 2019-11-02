@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 # Install tools
 RUN apt-get update
-RUN apt-get install -y build-essential python ninja-build make g++ vim git sudo
+RUN apt-get install -y build-essential python ninja-build vim git sudo
 
 # Expose ports used by net tests
 ENV NODE_COMMON_PORT=12346
