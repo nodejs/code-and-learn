@@ -18,6 +18,14 @@ Process:
 - If both `lib/a.js` and `lib/b.js` contain the pattern provided in the same task, it's recommended to only change `lib/a.js` in one commit and submit a PR for that, and move on to work on another task, leaving `lib/b.js` to other participants. Working on different tasks instead of repeating just one is much more helpful in improving understanding of the code base.
 - Participants are encouraged to work on tasks with prerequisites that they don't have. They can ask the mentors on-site for help and learn more about the code base.
 
+Please report: `task-code + filename.js` in the issue https://github.com/nodejs/code-and-learn/issues/97 before you start working on a file. For example if you plan to change the `Object.assign` pattern in `test/parallel/test-something.js`, reply in the issue:
+
+```
+I am going to work on object-assign in test/parallel/test-something.js
+```
+
+The task codes can be found below.
+
 ## JavaScript tasks
 
 Prerequisites:
@@ -25,6 +33,8 @@ Prerequisites:
 - Basic knowledge about ES6 and later
 
 ### Replace `Object.assign()` with object spread
+
+Task code: `object-assign`
 
 Look for patterns like this:
 
@@ -40,9 +50,13 @@ And replace it with
 
 ### Replace `var` with `const`/`let`
 
+Task code: `var`
+
 Find `var` declarations under `lib/` or `test/` (excluding `test/fixtures/`) and replace them with `const` or `let` where it makes sense.
 
 ### Destruct primordials
+
+Task code: `primordials`
 
 See issue: https://github.com/nodejs/node/issues/29766
 Example: https://github.com/nodejs/node/pull/29633
@@ -71,6 +85,8 @@ Prerequisites:
 
 ### Persist strings that are used multiple times in the `Environment`
 
+Task code: `env-string`
+
 Look for patterns like this under `src/`:
 
 ```cpp
@@ -82,6 +98,8 @@ If there is a `something_string` in the `PER_ISOLATE_STRING_PROPERTIES` list in 
 If this can be invoked multiple times at runtime (e.g. because it's in a C++ binding that can be called multiple times from the JavaScript land), add `something_string` to the `PER_ISOLATE_STRING_PROPERTIES` list and replace the `FIXED_ONE_BYTE_STRING` call with `env->something_string()` because it's more efficient (the former results in copies of the string).
 
 ### Remove unnecessary `Environment::GetCurrent`
+
+Task code: `get-current`
 
 Look for patterns like this under `src/`:
 
@@ -95,6 +113,8 @@ void SomeCallback(const FunctionCallbackInfo<Value>& args) {
 Where `env` is only used to retrieve `env->isolate()` and/or `env->context()`. These may be replaced by `args.GetIsolate()` or `args.GetIsolate()->GetCurrentContext()` because they involve fewer memory reads. It is usually fine, however, to keep the `Environment::GetCurrent` call if `env` is used for other purposes in the binding. If you are not sure whether the other uses of `env` can be done in a more efficient way without using `env`, ask the mentors!
 
 ### Adding error codes to JavaScript errors thrown in C++
+
+Task code: `cpp-error`
 
 See issue: 
 
@@ -129,6 +149,8 @@ Documentation and test updates are required for this task. Find existing tests u
 
 ### Updating memory tracker info for subclasses of `MemoryTracker`
 
+Task code: `memory-tracker`
+
 Look for patterns like this under `src/`
 
 ```cpp
@@ -148,11 +170,15 @@ Prerequisites:
 
 ### Add Debug calls in C++
 
+Task code: `cpp-debug`
+
 Find `ASSIGN_OR_RETURN_UNWRAP(wrap, ..)` or `SomeType* wrap = Unwrap<SomeType>(...)` calls in `src/`, and add `Debug(wrap, "...")` messages where it makes sense. This results in logs being printed when the environment variable `NODE_DEBUG_NATIVE` is set to a related debug category.
 
 This is not necessary if the JavaScript method calling the C++ binding already uses something like `debug()` to log the debug information (which is printed when `NODE_DEBUG` is set to a related debug category).
 
 ### Mark the side effect of the C++ bindings
+
+Task code: `side-effect`
 
 Look for `env->SetMethod(...)` under `src/`, and replace it with `env->SetMethodNoSideEffect(...)` if the method does not result in side effects. Similarly, `env->SetProtoMethod(..)` could be replaced with `env->SetProtoMethodNoSideEffect(...)` where it makes sense.
 
